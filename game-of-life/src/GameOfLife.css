@@ -1,9 +1,18 @@
 
 
-.GameOfLife__cell {
-    width: 5px;
-    height: 5px;
-    background-color: black;
-    border: 1px solid white;
+.GameOfLife__cells {
+    display: flex;
+    
+}
 
+.GameOfLife__cell {
+    width: 20px;
+    height: 20px;
+    background-color: hotpink;
+    border: 1px solid white;
+}
+
+.GameOfLife__column {
+    display: flex;
+    flex-direction: column;
 }
