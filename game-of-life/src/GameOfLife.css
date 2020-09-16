@@ -2,17 +2,24 @@
 
 .GameOfLife__cells {
     display: flex;
-    
+
 }
 
 .GameOfLife__cell {
     width: 20px;
     height: 20px;
-    background-color: hotpink;
-    border: 1px solid white;
+    border: 1px solid #c0c0c0;
 }
 
 .GameOfLife__column {
     display: flex;
     flex-direction: column;
+}
+
+.GameOfLife__cell--alive {
+    background-color: blue;
+}
+
+.GameOfLife__cell--dead {
+    background-color: hotpink;
 }

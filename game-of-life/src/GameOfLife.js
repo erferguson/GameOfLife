@@ -3,7 +3,7 @@ import './GameOfLife.css';
 
 /**
  * 
- * 1. render Grid
+ * 1. render Grid >> COMPLETED
  * 2. Spawn life on click
  * 3. Implement game logic
  */
@@ -11,8 +11,8 @@ import './GameOfLife.css';
 export default class GameOfLife extends React.Component {
 
   static field = {
-    columnsAmount: 10,
-    rowsAmount: 10,
+    columnsAmount: 20,
+    rowsAmount: 20,
   };
 
   static cellState = {
@@ -60,8 +60,9 @@ export default class GameOfLife extends React.Component {
   renderColumn(rows, columnIndex){
     return (
       <div className='GameOfLife__column' key={`column_${columnIndex}`}>
-        {rows.map((cellState, rowIndex) => {
-          return <div className = 'GameOfLife__cell' key={`cell_${columnIndex}_${rowIndex}`}/>
+        {rows.map((cellState, rowIndex) => {  
+          const cellModifier = cellState === GameOfLife.cellState.DEAD ? 'dead' : 'alive';
+          return <div className = {`GameOfLife__cell GameOfLife__cell--${cellModifier}`} key={`cell_${columnIndex}_${rowIndex}`}/>
         })}
       </div>
     )
