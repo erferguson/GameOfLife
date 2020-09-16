@@ -57,8 +57,14 @@ export default class GameOfLife extends React.Component {
     )
   }
 
-  renderColumn(){
-    return <div className='GameOfLife__column' /> 
+  renderColumn(rows, columnIndex){
+    return (
+      <div className='GameOfLife__column' key={`column_${columnIndex}`}>
+        {rows.map((cellState, rowIndex) => {
+          return <div className = 'GameOfLife__cell' key={`cell_${columnIndex}_${rowIndex}`}/>
+        })}
+      </div>
+    )
   }
 
 }
