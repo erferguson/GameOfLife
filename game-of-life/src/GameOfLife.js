@@ -39,6 +39,14 @@ export default class GameOfLife extends React.Component {
     return cells;
   }
 
+  toggleCellState(columnIndex, rowIndex) {
+    const newCellState = this.state.cells;
+
+    newCellState[columnIndex][rowIndex] = !newCellState[columnIndex][rowIndex]; // invert its value
+  
+    this.setState({state: newCellState})
+  }
+
   render(){
     return (
       <div className='GameOfLife'>
@@ -62,7 +70,11 @@ export default class GameOfLife extends React.Component {
       <div className='GameOfLife__column' key={`column_${columnIndex}`}>
         {rows.map((cellState, rowIndex) => {  
           const cellModifier = cellState === GameOfLife.cellState.DEAD ? 'dead' : 'alive';
-          return <div className = {`GameOfLife__cell GameOfLife__cell--${cellModifier}`} key={`cell_${columnIndex}_${rowIndex}`}/>
+          return <div 
+            className = {`GameOfLife__cell GameOfLife__cell--${cellModifier}`} 
+            key={`cell_${columnIndex}_${rowIndex}`}
+            onClick={() => this.toggleCellState(columnIndex, rowIndex)}
+          />
         })}
       </div>
     )
