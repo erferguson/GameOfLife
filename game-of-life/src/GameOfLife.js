@@ -50,9 +50,16 @@ export default class GameOfLife extends React.Component {
   renderCells(){
     return (
       <div className='GameOfLife__cells'>
-        cells
+        {this.state.cells.map((rows, columnIndex) => {
+          return this.renderColumn(rows, columnIndex)
+        })}
       </div>
     )
   }
+
+  renderColumn(){
+    return <div className='GameOfLife__column' /> 
+  }
+
 }
 
