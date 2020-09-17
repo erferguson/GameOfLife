@@ -17,9 +17,9 @@
 }
 
 .GameOfLife__cell--alive {
-    background-color: blue;
+    background-color: hotpink;
 }
 
 .GameOfLife__cell--dead {
-    background-color: hotpink;
+    background-color: black;
 }

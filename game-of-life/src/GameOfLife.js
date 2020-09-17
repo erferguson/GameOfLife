@@ -24,6 +24,7 @@ export default class GameOfLife extends React.Component {
     super(props);
     this.state = {
       cells: this.initializeCells(),
+      isGameRunning: false,
     }
   }
 
@@ -47,9 +48,14 @@ export default class GameOfLife extends React.Component {
     this.setState({state: newCellState})
   }
 
+  toggleIsGameRunning(){
+    this.setState({isGameRunning: !this.state.isGameRunning})
+  }
+
   render(){
     return (
       <div className='GameOfLife'>
+        {this.renderStartGameButton()}
         {this.renderCells()}
       </div>
     )
@@ -77,6 +83,17 @@ export default class GameOfLife extends React.Component {
           />
         })}
       </div>
+    )
+  }
+
+  renderStartGameButton(){
+    const buttonLabel = this.state.isGameRunning ? 'Stop' : 'Start';
+
+    return (
+      <button 
+        className='GameOfLife__startGameButton'
+        onClick={() => this.toggleIsGameRunning()}
+        >{buttonLabel}</button>
     )
   }
 
