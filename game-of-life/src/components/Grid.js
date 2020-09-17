@@ -5,7 +5,7 @@ import '../index.css'
 export default class Grid extends React.Component{
     render(){
         return (
-            <div></div>
+            <div>Grid</div>
         )
     }
 }
