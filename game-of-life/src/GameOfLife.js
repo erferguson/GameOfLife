@@ -11,8 +11,8 @@ import './GameOfLife.css';
 export default class GameOfLife extends React.Component {
 
   static field = {
-    columnsAmount: 20,
-    rowsAmount: 20,
+    columnsAmount: 25,
+    rowsAmount: 25,
   };
 
   static cellState = {
@@ -26,6 +26,8 @@ export default class GameOfLife extends React.Component {
       cells: this.initializeCells(),
       isGameRunning: false,
     }
+
+    setInterval(() => this.live(), 1000)
   }
 
   initializeCells() {
@@ -38,6 +40,72 @@ export default class GameOfLife extends React.Component {
       }
     }
     return cells;
+  }
+
+  live(){
+    console.log('game tick')
+    if (!this.state.isGameRunning){
+      return;
+    }
+
+    for (let columnIndex = 0; columnIndex < GameOfLife.field.columnsAmount; columnIndex++){
+      for (let rowIndex = 0; rowIndex < GameOfLife.field.rowsAmount; rowIndex++){
+        const newCellState = this.computeNewCellState(columnIndex, rowIndex)
+      }
+    }
+  }
+
+  computeNewCellState(columnIndex, rowIndex){
+    const aliveNeighborsAmount = this.computeAliveNeighborsAmount(columnIndex, rowIndex)
+    const currentCellState = this.state.cell[columnIndex, rowIndex];
+
+    if (currentCellState === GameOfLife.cellState.ALIVE){
+      if (aliveNeighborsAmount < 2){
+        return GameOfLife.cellState.DEAD;
+      }
+    } else {
+
+    }
+  }
+
+  computeAliveNeighborsAmount(columnIndex, rowIndex) {
+    let aliveNeighborsAmount = 0;
+
+    const neighborOffsets = [
+      [-1, 0], // left
+      [-1, 1], // top left
+      [0, 1], // top
+      [1, 1], // top right
+      [1, 0], // right
+      [1, -1], // bottom right
+      [0, -1], // bottom
+      [-1, -1], // bottom left
+    ]
+
+    for (const neighborOffsetKey in neighborOffsets){
+      const [xOffset, yOffset] = neighborOffsets[neighborOffsetKey];
+
+      let newColumnOffset = columnIndex + xOffset;
+      let newRowOffset = rowIndex + yOffset;
+
+      // Check Boundaries
+      if (newColumnOffset < 0 || newColumnOffset > GameOfLife.field.columnsAmount - 1){
+        continue;
+      }
+
+      if (newRowOffset < 0 || newRowOffset > GameOfLife.field.rowsAmount - 1){
+        continue;
+      }
+       
+      const neighborState = this.state.cells[columnIndex + xOffset][rowIndex + yOffset];
+ 
+      if (neighborState === GameOfLife.cellState.ALIVE){
+        aliveNeighborsAmount++;
+      }
+    }
+
+    // this.state.cells[columnIndex][rowIndex]
+    return aliveNeighborsAmount;
   }
 
   toggleCellState(columnIndex, rowIndex) {

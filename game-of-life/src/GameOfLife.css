@@ -23,3 +23,7 @@
 .GameOfLife__cell--dead {
     background-color: black;
 }
+
+.GameOfLife__startGameButton {
+    margin-bottom: 6px;
+}
