@@ -12,8 +12,7 @@ export default class Nav extends React.Component {
                     href='https://www.erferguson.com'
                     target='_blank'
                     rel='noopener noreferrer'
-                    >
-                        Website<span>{`//`}</span>
+                    >Portfolio
                     </a>
                </div>
            </nav>
