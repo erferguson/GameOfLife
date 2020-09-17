@@ -18,20 +18,22 @@ export default class GameOfLife extends React.Component {
   static cellState = {
     ALIVE: true,
     DEAD: false,
-  }
+  };
 
+  // INITIALIZATION
   constructor(props) {
     super(props);
+
     this.state = {
       cells: this.initializeCells(),
       isGameRunning: false,
-    }
-
-    setInterval(() => this.live(), 1000)
+    };
+    setInterval(() => this.live(), 200)
   }
 
   initializeCells() {
     let cells = [];
+
     for(let columnIndex = 0; columnIndex < GameOfLife.field.columnsAmount; columnIndex++){
       cells[columnIndex] = [];    
 
@@ -42,30 +44,43 @@ export default class GameOfLife extends React.Component {
     return cells;
   }
 
+  // GAME UPDATE LOGIC
   live(){
-    console.log('game tick')
+    // console.log('game tick')
     if (!this.state.isGameRunning){
       return;
     }
 
+    const newCells = [];
+
     for (let columnIndex = 0; columnIndex < GameOfLife.field.columnsAmount; columnIndex++){
+      newCells[columnIndex] = []; 
       for (let rowIndex = 0; rowIndex < GameOfLife.field.rowsAmount; rowIndex++){
-        const newCellState = this.computeNewCellState(columnIndex, rowIndex)
+        newCells[columnIndex][rowIndex] = this.computeNewCellState(columnIndex, rowIndex)
       }
     }
+    this.setState({cells: newCells})
   }
 
   computeNewCellState(columnIndex, rowIndex){
-    const aliveNeighborsAmount = this.computeAliveNeighborsAmount(columnIndex, rowIndex)
-    const currentCellState = this.state.cell[columnIndex, rowIndex];
+    const aliveNeighborsAmount = this.computeAliveNeighborsAmount(columnIndex, rowIndex);
+    const currentCellState = this.state.cells[columnIndex, rowIndex];
 
     if (currentCellState === GameOfLife.cellState.ALIVE){
       if (aliveNeighborsAmount < 2){
         return GameOfLife.cellState.DEAD;
+
+      } else if (aliveNeighborsAmount === 2 || aliveNeighborsAmount === 3) {
+        return GameOfLife.cellState.ALIVE;
+      } else if(aliveNeighborsAmount > 3) {
+        return GameOfLife.cellState.DEAD;
       }
     } else {
-
+      if (aliveNeighborsAmount === 3) {
+        return GameOfLife.cellState.ALIVE;
+      }
     }
+    
   }
 
   computeAliveNeighborsAmount(columnIndex, rowIndex) {
