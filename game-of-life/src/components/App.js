@@ -9,8 +9,8 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.speed = 100;
-    this.rows = 25;
-    this.cols = 25;
+    this.rows = 30;
+    this.cols = 30;
 
     this.state = {
       generation: 0,

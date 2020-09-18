@@ -10,7 +10,7 @@ body {
     margin-left: -1px;
     margin-bottom: -1px;
     }
-  
+   
   .off {
     background-color: lightgray;
   }
@@ -20,7 +20,7 @@ body {
   }
     
   .box:hover { 
-    background: #00CCFF;
+    background: hotpink;
   }
   
   .center {
