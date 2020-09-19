@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import '../index.css'
 
 import Nav from './Nav'
+import Buttons from './Buttons'
 import Grid from './Grid'
 
 export default class App extends React.Component{
@@ -48,6 +49,44 @@ playButton = () => {
 
 pauseButton = () => {
     clearInterval(this.intervalId)
+}
+
+slow = () => {
+    this.speed = 1000;
+    this.playButton()
+}
+
+fast= () => {
+    this.speed = 100;
+    this.playButton()
+}
+clear = () => {
+    var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false)) // 15:10  REFACTOR 
+    this.setState({
+        gridFull: grid,
+        generation: 0
+    });
+}
+
+gridSize = (size) => {
+    switch(size) {
+        case'1':
+            this.cols = 10; 
+            this.rows = 10; 
+        break;
+        case'2':
+            this.cols = 40;
+            this.rows = 40;
+        break;
+        case'3':
+            this.cols = 75;
+            this.rows = 50;
+        break;
+        default:
+            this.cols = 25;
+            this.rows = 25;
+    }
+    this.clear();
 }
 
 play = () => {
@@ -96,6 +135,15 @@ componentDidMount(){
       <div>
         <h1>Game of Life</h1>
         <Nav />
+        <Buttons 
+            playButton={this.playButton}
+            pauseButton={this.pauseButton}
+            slow={this.slow}
+            fast={this.fast}
+            clear={this.clear}
+            seed={this.seed}
+            gridSize={this.gridSize}
+        />
         <Grid 
             gridFull={this.state.gridFull} // props being passed to Grid.js
             rows={this.rows} // props
