@@ -5,15 +5,16 @@ export default class Nav extends React.Component {
        return (
            <nav>
                <div>
-                   <h3>Eric Ferguson</h3>
+                    <h3>Eric Ferguson</h3>
                </div>
                <div>
-                   <a 
+                   <h4><a 
                     href='https://www.erferguson.com'
                     target='_blank'
                     rel='noopener noreferrer'
                     >Portfolio
                     </a>
+                    </h4>
                </div>
            </nav>
        )
