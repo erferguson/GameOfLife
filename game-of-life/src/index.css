@@ -10,6 +10,13 @@ body {
     margin-left: -1px;
     margin-bottom: -1px;
     }
+
+  .btn {
+    color: hotpink;
+    /* background-color: dodgerblue; */
+    font-size: 14px;
+    font: bold;
+  }
    
   .off {
     background-color: ;

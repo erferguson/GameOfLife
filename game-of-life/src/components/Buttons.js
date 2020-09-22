@@ -4,11 +4,9 @@ import "../index.css";
 import {
   Button,
   ButtonGroup,
-  ButtonToolbar,
   DropdownButton,
   Dropdown
 } from "react-bootstrap";
-// import { Dropdown } from "react-bootstrap";
 
 export default class Buttons extends React.Component {
   handleSelect = evt => {
