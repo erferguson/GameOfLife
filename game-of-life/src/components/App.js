@@ -71,16 +71,16 @@ clear = () => {
 gridSize = (size) => {
     switch(size) {
         case'1':
-            this.cols = 10; 
-            this.rows = 10; 
+            this.cols = 25; 
+            this.rows = 25; 
         break;
         case'2':
             this.cols = 40;
             this.rows = 40;
         break;
         case'3':
-            this.cols = 75;
-            this.rows = 50;
+            this.cols = 100;
+            this.rows = 100;
         break;
         default:
             this.cols = 25;
