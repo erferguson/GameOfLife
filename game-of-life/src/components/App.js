@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import '../index.css'
 
 import Nav from './Nav'
+import About from './About'
 import Buttons from './Buttons'
 import Grid from './Grid'
 
@@ -135,6 +136,7 @@ componentDidMount(){
       <div>
         <h1>Game of Life</h1>
         <Nav />
+        <About />
         <Buttons 
             playButton={this.playButton}
             pauseButton={this.pauseButton}
