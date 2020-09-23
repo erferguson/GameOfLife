@@ -51,5 +51,20 @@ body {
     margin-top: 10px;
   }
 
+  /*About section */
+
+  .accordionDiv{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+  }
+.accordionMain {
+  width: 200px;
+}
+
+.accordionCard {
+  font-size: 16px;
+}
+
 
 
