@@ -136,7 +136,7 @@ componentDidMount(){
       <div>
         <h1>Game of Life</h1>
         <Nav />
-        <About />
+        
         <Buttons 
             playButton={this.playButton}
             pauseButton={this.pauseButton}
@@ -153,6 +153,7 @@ componentDidMount(){
             selectBox={this.selectBox} // props
         />
         <h2>Generations: {this.state.generation}</h2>
+        <About />
       </div>
     )
   }

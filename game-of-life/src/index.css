@@ -54,16 +54,21 @@ body {
   /*About section */
 
   .accordionDiv{
-    border: 1px solid red;
     display: flex;
     justify-content: center;
   }
 .accordionMain {
-  width: 200px;
+  width: 425px;
 }
 
 .accordionCard {
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/squares.png);
+  border: 1px dotted hotpink;
+  color: hotpink;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 
