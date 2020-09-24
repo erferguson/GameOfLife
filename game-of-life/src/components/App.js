@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../index.css'
 
 import Nav from './Nav'
@@ -21,7 +20,10 @@ export default class App extends React.Component{
   }
 
   selectBox = (row, col) => {
+      // two gridCopy's, let is attached to Class -- 
+      // gridCopy is an array of an arry
     let gridCopy = arrayClone(this.state.gridFull);
+
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
         gridFull: gridCopy
@@ -91,37 +93,38 @@ gridSize = (size) => {
 }
 
 play = () => {
-    let g = this.state.gridFull;
-    let g2 = arrayClone(this.state.gridFull);
+    let grid = this.state.gridFull;
+    let grid2 = arrayClone(this.state.gridFull);
 
-    for (let i = 0; i < this.rows; i++) {
-        for (let j = 0; j < this.cols; j++) {
+    for (let r = 0; r < this.rows; r++) {
+        for (let c = 0; c < this.cols; c++) {
+            // count == neighbors 
           let count = 0;
 
           // Game of Life RULES
-          if (i > 0) if (g[i - 1][j]) count++;
+          if (r > 0) if (grid[r - 1][c]) count++;
 
-          if (i > 0 && j > 0) if (g[i - 1][j - 1]) count++;
+          if (r > 0 && c > 0) if (grid[r - 1][c - 1]) count++;
 
-          if (i > 0 && j < this.cols - 1) if (g[i - 1][j + 1]) count++;
+          if (r > 0 && c < this.cols - 1) if (grid[r - 1][c + 1]) count++;
 
-          if (j < this.cols - 1) if (g[i][j + 1]) count++;
+          if (c < this.cols - 1) if (grid[r][c + 1]) count++;
 
-          if (j > 0) if (g[i][j - 1]) count++;
+          if (c > 0) if (grid[r][c - 1]) count++;
 
-          if (i < this.rows - 1) if (g[i + 1][j]) count++;
+          if (r < this.rows - 1) if (grid[r + 1][c]) count++;
 
-          if (i < this.rows - 1 && j > 0) if (g[i + 1][j - 1]) count++;
+          if (r < this.rows - 1 && c > 0) if (grid[r + 1][c - 1]) count++;
 
-          if (i < this.rows - 1 && j < this.cols - 1) if (g[i + 1][j + 1]) count++;
+          if (r < this.rows - 1 && c < this.cols - 1) if (grid[r + 1][c + 1]) count++;
 
-          if (g[i][j] && (count < 2 || count > 3)) g2[i][j] = false;
+          if (grid[r][c] && (count < 2 || count > 3)) grid2[r][c] = false;
 
-          if (!g[i][j] && count === 3) g2[i][j] = true;
+          if (!grid[r][c] && count === 3) grid2[r][c] = true;
         }
       }
       this.setState({
-          gridFull:g2,
+          gridFull:grid2,
           generation: this.state.generation + 1
       })
 }
@@ -134,7 +137,7 @@ componentDidMount(){
   render(){
     return (
       <div>
-        <h1>Game of Life</h1>
+        <p className='titleGoL'>Game of Life</p>
         <Nav />
         
         <Buttons 
@@ -152,7 +155,7 @@ componentDidMount(){
             cols={this.cols} // props
             selectBox={this.selectBox} // props
         />
-        <h2>Generations: {this.state.generation}</h2>
+        <p className='generations'>Generations: {this.state.generation}</p>
         <About />
       </div>
     )

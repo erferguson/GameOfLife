@@ -6,6 +6,7 @@ import Box from './Box'
 export default class Grid extends React.Component{
     render(){
         const width = (this.props.cols * 14);
+        // rowsArr is the Grid, holds the Boxes
         var rowsArr = []
 
         var boxClass ='';
@@ -19,8 +20,8 @@ export default class Grid extends React.Component{
                         boxClass={boxClass} // props being passed to Box.js
                         key={boxId} // props
                         boxId={boxId} // props
-                        row={i} // props
-                        col={j} // props
+                        row={i} // props / i == row
+                        col={j} // props / j == col
                         selectBox={this.props.selectBox} // props
                     />
                 );

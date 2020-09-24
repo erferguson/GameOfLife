@@ -12,7 +12,8 @@ body {
     }
 
   .btn {
-    color: hotpink;
+    background-color: hotpink;
+    color: royalblue;
     font-size: 14px;
     font: bold;
   }
@@ -33,6 +34,8 @@ body {
     margin: auto;
     display: table;
     margin-top: 10px;
+    margin-bottom: 50px;
+
   }
   
   .grid {
@@ -51,8 +54,59 @@ body {
     margin-top: 10px;
   }
 
-  /*About section */
+  /*Generations section */
+  .generations {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    color: white;
+  }
+  /*Title section */
+  .titleGoL {
+  color:white;
+  font-size:2em;
+  text-align:center;
+  animation: neonGlow 2s infinite alternate;
+  padding-top: 10px;
+  }
+  @keyframes neonGlow {
+    0% {
+      text-shadow: 0 0 10px rgba(255,255,255,.8),
+                   0 0 20px rgba(255,255,255,.8),
+                   0 0 22px  rgba(255,255,255,.8),
+                   0 0 40px  rgba(66,220,219,.8),
+                   0 0 60px  rgba(66,220,219,.8),
+                   0 0 80px  rgba(66,220,219,.5),
+                   0 0 100px rgba(66,220,219,.5),
+                   0 0 140px rgba(66,220,219,.5),
+                   0 0 200px rgba(66,220,219,.5);
+    }
+    100% {
+      text-shadow: 0 0 2px rgba(255,255,255,.8),
+                   0 0 8px rgba(255,255,255,.8),
+                   0 0 10px rgba(255,255,255,.8),
+                   0 0 20px rgba(66,220,219,.8),
+                   0 0 30px rgba(66,220,219,.8),
+                   0 0 40px rgba(66,220,219,.8),
+                   0 0 50px rgba(66,220,219,.5),
+                   0 0 80px rgba(66,220,219,.5);
+    }
+  }
 
+   /*Nav section */
+  .navMain {
+    padding-top: 12px;
+    padding-bottom: 24px;
+  }
+  .navMain h4 {
+    font-size:16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  /*About section */
   .accordionDiv{
     display: flex;
     justify-content: center;

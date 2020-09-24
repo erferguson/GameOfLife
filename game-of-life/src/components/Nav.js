@@ -1,18 +1,16 @@
 import React from 'react'
+import '../index.css'
 
 export default class Nav extends React.Component {
    render(){
        return (
            <nav>
-               <div>
-                    <h3>Eric Ferguson</h3>
-               </div>
-               <div>
-                   <h4><a 
+               <div className='navMain'>
+                   <h4>created by:<a 
                     href='https://www.erferguson.com'
                     target='_blank'
                     rel='noopener noreferrer'
-                    >Portfolio
+                    >Eric Ferguson
                     </a>
                     </h4>
                </div>

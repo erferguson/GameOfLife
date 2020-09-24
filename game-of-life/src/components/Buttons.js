@@ -38,7 +38,7 @@ export default class Buttons extends React.Component {
 
           <DropdownButton
             as={ButtonGroup}
-            title="Dropdown"
+            title="Grid Size"
             id="size-menu"
             onSelect={this.handleSelect}
           >
