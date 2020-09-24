@@ -25,6 +25,8 @@ Conway's Game of Life built with a ⌨️ using React
 ## Turing Completeness of GofL
 - All programming languages are either Turing Complete (TC) or they are not. But all of the languages known of are TC, though.
 
-Being TC means that it needs to do everything that a Turing machine can do. Think of a Turing machine as if it was an endless, infinite piece of tape with simple 0s and 1s but powerful enough to computate anything that one can think up. 
+- Being TC means that it needs to do everything that a Turing machine can do. 
 
-Conway's GofL is TC because it is based on the state of one cell changing depending on the state of other cells. 
+- Think of a Turing machine as if it was an endless, infinite piece of tape with simple 0s and 1s but powerful enough to computate anything that one can think up. 
+
+- Conway's GofL is TC because it is based on the state of one cell changing depending on the state of other cells. 
