@@ -8,6 +8,15 @@ Conway's Game of Life built with a ⌨️ using React
 
 - It is Turing complete and can simulate a universal constructor or any other Turing machine.
 
+## GofL Rules
+1. Each cell on a 2D grid has up to 8 neighbors. Whether the cell Lives or Dies, depends on how many of it's neighbors are Living. For each new generation, the State of each cell may change.
+
+2. IF the cell is ALIVE & has 2 or 3 neighbors, the cell remains Alive. If cell Does Not have 2 or 3 neighbors, it Dies.
+
+3. The cell can come back to life only if the cell is already dead and has exactly 3 neighbors. The cell will remain Dead if this is not True.
+
+4. These Rules are implemented into Conway's GofL but Cellular Automata, see below, can have any rules one wishes to implement.
+
 ## Cellular Automata
 - Dr. Stanislaw Ulam, famous for contributing to the Manhattan Project and the Teller-Ulam design which is the basis for all thermonuclear weapons, founded the concept of Cellular Automat with Dr. John Von Neumann at Los Alamos National Lab in the post-WW2 era. 
 
